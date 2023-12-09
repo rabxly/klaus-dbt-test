@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+  - name: external
+    description: Data exported from the external customer service tool
+    database: klaus-home-assignment
+    schema: source_external
+    loader: One-time csv for the home assingment.
+    meta: 
+      owner: "zsrabai@gmail.com"
+    tags: [external]
+    config:
+      enabled: true
+    tables:
+      - name: conversations

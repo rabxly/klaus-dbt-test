@@ -1,0 +1,19 @@
+version: 2
+
+sources:
+  - name: klaus
+    description: Automatic and manual reviews and ratings from the Klaus app.
+    database: klaus-home-assignment
+    schema: source_klaus
+    loader: One-time csv for the home assingment.
+    meta: 
+      owner: "zsrabai@gmail.com"
+    tags: [klaus]
+    config:
+      enabled: true
+    tables:
+      - name: autoqa_ratings
+      - name: autoqa_reviews
+      - name: autoqa_root_cause
+      - name: manual_ratings
+      - name: manual_reviews
