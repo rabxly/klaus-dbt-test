@@ -29,6 +29,7 @@ final as (
     first_resolution_time_seconds,
     full_resolution_time_seconds,
     most_active_internal_user_id,
+    cast(deleted_at as timestamp) as deleted_at
   from source
 )
 
