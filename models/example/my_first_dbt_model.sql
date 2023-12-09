@@ -16,7 +16,7 @@ with source_data as (
     select null as id
 
 )
-
+ref
 select *
 from source_data
 
