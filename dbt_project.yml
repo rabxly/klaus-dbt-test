@@ -23,6 +23,11 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "target"
   - "dbt_packages"
 
+# These configurations specify where data from the "seeds/" folder should be
+# in BigQuery
+seeds:
+  +database: klaus-home-assignment # your google cloud project_id
+  +schema: seeds # the dataset where you want your seeds data to be in
 
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
@@ -32,9 +37,16 @@ clean-targets:         # directories to be removed by `dbt clean`
 # files using the `{{ config(...) }}` macro.
 models:
   klaus_dbt_test:
+    example:
+      +enabled: false
     staging:
       +materialized: view
+      external:
+        +schema: staging_external
+      klaus:
+        +schema: staging_klaus
     intermediate:
       +materialized: view
+      +schema: intermediate
     marts:
       +materialized: table
