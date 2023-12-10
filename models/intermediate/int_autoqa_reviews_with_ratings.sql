@@ -32,9 +32,9 @@ reviews_with_ratings as (
     score,
     root_cause
   from reviews 
-  inner join ratings using (autoqa_review_id)
-  left join root_cause_filtered using (autoqa_rating_id)
-  left join category_groups using (rating_category_name)
+  inner join ratings using(autoqa_review_id)
+  left join root_cause_filtered using(autoqa_rating_id)
+  left join category_groups using(rating_category_name)
 )
 
 select * from reviews_with_ratings

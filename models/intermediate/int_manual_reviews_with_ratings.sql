@@ -23,15 +23,15 @@ reviews_with_ratings as (
     reviews.reviewee_id,
     category_id as rating_category_id,
     category_name as rating_category_name,
-    rating_category_group
+    rating_category_group,
     rating_max,
     rating,
     (rating / rating_max) * 100 as rating_score,
     weight,
     critical
   from reviews 
-  inner join ratings using (review_id)
-  left join category_groups on category_name=rating_category_name
+  left join ratings using(review_id)
+  left join category_groups on ratings.category_name=category_groups.rating_category_name
   where rating <= rating_max)
 
 select * from reviews_with_ratings 
