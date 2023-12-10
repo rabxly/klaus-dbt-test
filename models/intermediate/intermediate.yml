@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: int_conversations_distinct
+    columns:
+      - name: external_ticket_id
+        tests:
+          - unique
+          - not_null
+  - name: int_autoqa_reviews_with_ratings
+    columns:
+      - name: autoqa_review_id
+        tests:
+          - not_null
+      - name: autoqa_rating_id
+        tests:
+          - not_null
+  - name: int_manual_reviews_with_ratings
+    columns:
+      - name: review_id
+        tests:
+          - not_null

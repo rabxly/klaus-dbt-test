@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: stg_klaus__autoqa_ratings
+    columns:
+      - name: autoqa_rating_id
+        tests:
+          - unique
+          - not_null
+      - name: autoqa_review_id
+        tests:
+          - not_null
+  - name: stg_klaus__autoqa_reviews
+    columns:
+      - name: autoqa_review_id
+        tests:
+          - unique
+          - not_null
+      - name: external_ticket_id
+        tests:
+          - not_null
+  - name: stg_klaus__autoqa_root_cause
+    columns:
+      - name: autoqa_rating_id
+        tests:
+          - not_null
+  - name: stg_klaus__manual_ratings
+    columns:
+      - name: review_id
+        tests:
+          - not_null
+  - name: stg_klaus__manual_reviews
+    columns:
+      - name: review_id
+        tests:
+          - unique
+          - not_null
+      - name: external_ticket_id
+        tests:
+          - not_null
