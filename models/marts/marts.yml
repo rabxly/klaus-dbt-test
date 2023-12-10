@@ -1,0 +1,49 @@
+version: 2
+
+models:
+  - name: fct_conversations
+    description: Data for every distinct conversation with additional metrics from autoqa and manual reviews.
+    columns:
+      - name: external_ticket_id
+        tests:
+          - unique
+          - not_null
+  - name: fct_agents
+    description: Aggregated metrics for every agent appearing in the conversations data
+    columns:
+      - name: assignee_id
+        tests:
+           - unique
+           - not_null
+           - relationships:
+              to: ref('fct_conversations')
+              field: assignee_id
+  - name: dim_autoqa_ratings
+    description: The autoqa-related tables joined and cleaned.
+    columns:
+      - name: autoqa_review_id
+        tests:
+          - not_null
+      - name: autoqa_rating_id
+        tests:
+          - not_null
+      - name: external_ticket_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('fct_conversations')
+              field: external_ticket_id
+  - name: dim_manual_ratings
+    description: The manual review tables joined together
+    columns:
+      - name: review_id
+        tests:
+          - not_null
+      - name: external_ticket_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('fct_conversations')
+              field: external_ticket_id
+
+      

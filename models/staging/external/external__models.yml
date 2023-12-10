@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: stg_external__conversations
+    columns:
+      - name: external_ticket_id
+        tests:
+          - not_null
+      - name: payment_token_id
+        tests:
+          - not_null
