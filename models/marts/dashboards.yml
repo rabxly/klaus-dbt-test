@@ -1,0 +1,22 @@
+version: 2
+
+exposures:
+
+  - name: klaus_assignment_dashboard
+    label: Klaus assignment
+    type: dashboard
+    maturity: high
+    url: https://lookerstudio.google.com/u/0/reporting/351a145f-1f56-40a0-8101-67462d546028/page/WaokD
+    description: >
+      Dashboard created for the home assignment for Klaus. It details possible problems
+      The customer might be having.
+
+    depends_on:
+      - ref('fct_conversations')
+      - ref('fct_agents')
+      - ref('dim_autoqa_ratings')
+      - ref('dim_manual_ratings')
+
+    owner:
+      name: Zsolt Rábai
+      email: zsrabai@gmail.com
